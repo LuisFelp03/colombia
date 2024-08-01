@@ -6,16 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Departamento</title>
     <link rel="stylesheet" href="./main.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="icon" href="./favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="logo" href="./assets/colombia.png">
+    <link rel=" icon" href="./favicon.webp">
 </head>
 
 <body>
-    <header class="mb-4">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="./bandeira-colombia-flag.png" alt="Colombia" width="100">
+                    <img src="./bandeira-colombia-flag.png" alt="Colombia">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -28,40 +30,34 @@
                             <a class="nav-link active" aria-current="page" href="./iindex.html">Colombia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./invasoras.html#">Especies invasoras</a>
+                            <a class="nav-link" href="./invasoras.html">Especies invasoras</a>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container px-5">
-        <h1 class="text-center" id="department-name">Nombre del Departamento</h1>
-        <div id="department-description" class="mb-4"></div>
+    <main id="main">
+        <section>
+            <h2>Detalles de</h2>
+            <div class="lorem container-fluid text-center" id="detalle">
+            </div>
+            <div class="container my-4">
+                <input type="text" id="searchInput" class="form-control" placeholder="Buscar por nombre">
+            </div>
+            <div class="container my-4">
+                <input type="checkbox" id="ciudadesCheckbox"> Mostrar Ciudades
+                <input type="checkbox" id="areasNaturalesCheckbox"> Mostrar Áreas Naturales
+            </div>
+            <div class="lorem container-fluid text-center" id="ciudades">
+                <div class="row" id="ciudades-row"></div>
+            </div>
 
-        <div class="mb-4">
-            <h2>Ciudades</h2>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="filter-cities">
-                <label class="form-check-label" for="filter-cities">Mostrar Ciudades</label>
+            <div class="lorem container-fluid text-center" id="areas-naturales">
+                <div class="row justify-content-center" id="areas-naturales-row"></div>
             </div>
-            <div id="cities-container" class="row justify-content-center">
-                <!-- Tarjetas de ciudades -->
-            </div>
-        </div>
-
-        <div class="mb-4">
-            <h2>Áreas Naturales</h2>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="filter-naturals">
-                <label class="form-check-label" for="filter-naturals">Mostrar Áreas Naturales</label>
-            </div>
-            <div id="naturals-container" class="row justify-content-center">
-                <!-- Tarjetas de áreas naturales -->
-            </div>
-        </div>
+        </section>
     </main>
 
     <footer>
@@ -72,8 +68,8 @@
                 <p class="text-warning">.</p>
             </div>
             <div class="bg-primary d-flex justify-content-start p-3">
-                <button class="btn border-0 p-0 me-4"><img src="./facebook.png" alt="Facebook"></button>
-                <button class="btn border-0 p-0 me-4"><img src="./instagram.png" alt="Instagram"></button>
+                <button class="btn border-0 p-0 me-2"><img src="./facebook.png" alt="Facebook"></button>
+                <button class="btn border-0 p-0 me-2"><img src="./instagram.png" alt="Instagram"></button>
                 <button class="btn border-0 p-0"><img src="./whatsapp.png" alt="Whatsapp"></button>
             </div>
             <div class="bg-danger d-flex pt-2">
@@ -82,8 +78,10 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="details.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="./details.js"></script>
 </body>
 
 </html>
