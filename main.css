@@ -1,0 +1,36 @@
+nav {
+    background-color: #F8EDE3;
+}
+
+body {
+    background-image: linear-gradient(to right, #f7dc6f, #3498db, #e74c3c);
+}
+
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.scrollable-cell {
+    max-height: 100px;
+    overflow-y: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.scrollable-cell img {
+    max-width: 100px;
+    height: auto;
+}
+
+.table img {
+    max-width: 100px;
+    height: auto;
+}
+
+.custom-img {
+    height: 400px;
+    width: 200;
+    object-fit: contain;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Departamento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #333;
+        }
+
+        .department-details {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+        }
+
+        .filter {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="department-details" id="department-details">
+        <h1>Detalles del Departamento</h1>
+        <p id="department-info"></p>
+    </div>
+
+    <div class="filter">
+        <h3>Filtrar Ciudades</h3>
+        <form id="city-filter-form"></form>
+    </div>
+
+    <h2>Ciudades</h2>
+    <div id="cities-container"></div>
+
+    <h2>Áreas Naturales</h2>
+    <div id="areas-container"></div>
+
+    <script>
+        const departmentId = '1'; // Cambia esto al ID del departamento que deseas consultar
+
+        // Función para obtener detalles del departamento
+        async function fetchDepartmentDetails() {
+            const response = await fetch(`https://api-colombia.com/api/v1/Department/${departmentId}`);
+            const data = await response.json();
+            document.getElementById('department-info').innerText = `Nombre: ${data.name}, Capital: ${data.capital}, Población: ${data.population}`;
+        }
+
+        // Función para obtener ciudades
+        async function fetchCities() {
+            const response = await fetch(`https://api-colombia.com/api/v1/Department/${departmentId}/cities`);
+            const cities = await response.json();
+            const form = document.getElementById('city-filter-form');
+            const container = document.getElementById('cities-container');
+
+            cities.forEach(city => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `<h4>${city.name}</h4><p>${city.description}</p>`;
+                container.appendChild(card);
+
+                // Checkbox para filtrar
+                const checkbox = document.createElement('label');
+                checkbox.innerHTML = `<input type="checkbox" name="city" value="${city.name}" checked> ${city.name}`;
+                form.appendChild(checkbox);
+            });
+        }
+
+        // Función para obtener áreas naturales
+        async function fetchNaturalAreas() {
+            const response = await fetch(`https://api-colombia.com/api/v1/Department/${departmentId}/natural-areas`);
+            const areas = await response.json();
+            const container = document.getElementById('areas-container');
+
+            areas.forEach(area => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `<h4>${area.name}</h4><p>${area.description}</p>`;
+                container.appendChild(card);
+            });
+        }
+
+        // Inicializar la página
+        async function init() {
+            await fetchDepartmentDetails();
+            await fetchCities();
+            await fetchNaturalAreas();
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
